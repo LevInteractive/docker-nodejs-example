@@ -1,13 +1,19 @@
-# Need to implement.
-#
-# web:
-#   build: .
-#   volumes:
-#     - .:/src
-#   links:
-#    - redis
-#    - mongodb
-# redis:
-#   image: redis
-# mongodb:
-#   image: dockerfile/mongodb
+web:
+  build: .
+  links:
+   - mongo
+   - redis
+  ports:
+    - "8080:8080"
+    - "8888:80"
+  environment:
+    NODE_ENV: production
+redis:
+  image: redis
+  volumes:
+    - /var/lib/redisdb:/data
+mongo:
+  image: mongo
+  volumes:
+    - /usr/local/var/mongodb/:/data/db
+    # - /var/lib/mongodb/:/data/db

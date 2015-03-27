@@ -1,0 +1,11 @@
+{
+  "mongo": {
+    "host": "localhost",
+    "db": "production_myapp",
+    "port": 27017,
+    "options": {
+      "keepAlive": 1
+    }
+  }
+}
+

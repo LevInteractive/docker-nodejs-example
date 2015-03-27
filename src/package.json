@@ -9,6 +9,10 @@
   "author": "",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "express": "~4.12.3"
+    "express": "4.12.3",
+    "mongoose": "3.8",
+    "redis": "0.12.1",
+    "config": "1.12.0",
+    "bcrypt": "~0.8.1"
   }
 }
