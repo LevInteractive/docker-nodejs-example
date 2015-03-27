@@ -1,4 +1,16 @@
-## Play with it.
+## What is this?
+
+This can be used as a boilerplate for a node project. The benefit to using docker is that it allows you to manage your environment
+is to make sure all environments are consistent from the developers to the production server. It also saves you a ton of time.
+
+## How do I use it?
+
+First you should have a general understanding of what [docker](https://www.docker.com/) and [docker-compose](https://docs.docker.com/compose/yml/) are 
+and make sure they're installed on your machine. For Linux it's a snap. For OS X, [there are a few extra steps](http://viget.com/extend/how-to-use-docker-on-os-x-the-missing-guide) 
+but it really isn't that bad.
+
+The idea is pretty simple. You can tweak the volumes in the [docker-compose.yml](docker-compose.yml) to match your enviornment and get going.
+Optionally, you can create another copy for a specific environment.
 
 ```bash
 # Get it up.
