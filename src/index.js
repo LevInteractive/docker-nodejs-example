@@ -1,15 +1,13 @@
 var express = require('express');
 
-// Constants
-var PORT = 8080;
+var PORT = process.env.APP_PORT;
 
-// App
 var app = express();
+
 app.get('/', function (req, res) {
   res.send('Hello world\n');
 });
 
-
 app.listen(PORT);
 
-console.log('Running on http://localhost:' + PORT + ' and the node env isssss: ' + process.env.NODE_ENV);
+console.log('Running on http://localhost:' + PORT + ' and the node env is: ' + process.env.NODE_ENV);

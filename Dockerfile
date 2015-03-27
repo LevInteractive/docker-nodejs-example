@@ -13,8 +13,12 @@ RUN apt-get update && \
 # Install globals we need for npm to build and run the project.
 RUN npm install -g forever bower grunt-cli
 
-# Var for express/node.
-ENV NODE_ENV staging
+# Var for express/node. You'd want to overwrite this when running
+# in staging or production. Overwrite on the run command.
+ENV NODE_ENV development
+
+# Port to run the app on.
+ENV APP_PORT 8080
 
 # Where the app libs on the host.
 ENV APP_ROOT /src/app
@@ -41,4 +45,4 @@ CMD forever -a -w \
       index.js
 
 # Expose the port that the app runs on so it can be bound.
-EXPOSE 8080
+EXPOSE $APP_PORT
