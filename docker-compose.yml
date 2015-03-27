@@ -1,0 +1,13 @@
+# Need to implement.
+#
+# web:
+#   build: .
+#   volumes:
+#     - .:/src
+#   links:
+#    - redis
+#    - mongodb
+# redis:
+#   image: redis
+# mongodb:
+#   image: dockerfile/mongodb
