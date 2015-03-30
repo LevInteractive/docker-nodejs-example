@@ -14,7 +14,7 @@ Optionally, you can create another copy for a specific environment.
 
 ```bash
 # Get it up.
-docker-compose up -p my-container
+docker-compose up
 
 # Now you should be able to visit localhost or (<boot2docker ip>) if on a mac.
 # So something like this:
