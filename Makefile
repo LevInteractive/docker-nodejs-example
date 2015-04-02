@@ -6,7 +6,7 @@ include env_make
 #
 # Phony targets.
 #
-.PHONY: help build run-db run-dev dump-db import-db run-release destroy
+.PHONY: help build run-dev run-release save destroy
 
 #
 # Iterated after major releases.
