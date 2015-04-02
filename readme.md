@@ -10,7 +10,11 @@ in history now. This example was made with mongo, but with a little tweaking any
 This can be used as a boilerplate for a node project. The benefit to using docker is that it allows you to manage your environment
 is to make sure all environments are consistent from the developers to the production server. It also saves you a ton of time.
 
+Checkout this gif:
+
 ![example](http://i.imgur.com/yhVTi0S.gif)
+
+Whoa.
 
 ## How do I use it?
 
