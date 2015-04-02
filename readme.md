@@ -15,11 +15,12 @@ is to make sure all environments are consistent from the developers to the produ
 First you should have a general understanding of what [docker](https://www.docker.com/) is and make sure they're installed on your 
 machine. For Linux it's a snap. For OS X, [there are a few extra steps](http://viget.com/extend/how-to-use-docker-on-os-x-the-missing-guide) but it really isn't that bad.
 
-1. First, run `make build`. This will build the image for the application.
-2. Then run `make run-dev`. This will run all of the containers and you're ready to develop. On linux you can visit localhost:3030. On OS X
+1. First `cp env_make.dist env_make`. This is where you can overwrite environment specific vars for the makefile.
+2. Run `make build`. This will build the image for the application.
+3. Then run `make run-dev`. This will run all of the containers and you're ready to develop. On linux you can visit localhost:3030. On OS X
 visit your (boot2docker ip):3030.
-3. Refresh a few times, which adds cats to the system. Head back to the command line and do `make save`.
-4. Head back to the browser and refresh as many times as you can. Then go back and do `make restore`. You'll be back where you saved. Controlled 
+4. Refresh a few times, which adds cats to the system. Head back to the command line and do `make save`.
+5. Head back to the browser and refresh as many times as you can. Then go back and do `make restore`. You'll be back where you saved. Controlled 
 persistence.
 5. To remove this app do `make destroy`.
 
