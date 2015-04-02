@@ -47,3 +47,4 @@ make destroy      Stops and removes all running containers.
 
 * Redis persistence.
 * Ability to pass in the name of a mongodb dump directory instead of it always pulling the latest.
+* Create data-container for logs for load-balanced node instances so we can tail all of them.
