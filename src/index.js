@@ -13,11 +13,11 @@ var app = express();
 
 /** Set app properties. */
 app.set('port', process.env.APP_PORT || config.get('app.port'));
-app.set('redis_host', process.env.REDIS_PORT_6379_TCP_ADDR || config.get('redis.host'));
-app.set('redis_port', process.env.REDIS_PORT_6379_TCP_PORT || config.get('redis.port'));
+app.set('redis_host', config.get('redis.host'));
+app.set('redis_port', config.get('redis.port'));
 app.set('redis_options', config.get('redis.options'));
-app.set('mongo_host', process.env.MONGO_PORT_27017_TCP_ADDR || config.get('mongo.host'));
-app.set('mongo_port', process.env.MONGO_PORT_27017_TCP_PORT || config.get('mongo.port'));
+app.set('mongo_host', config.get('mongo.host'));
+app.set('mongo_port', config.get('mongo.port'));
 app.set('mongo_db', config.get('mongo.db'));
 app.set('mongo_options', config.get('mongo.options'));
 
@@ -31,6 +31,8 @@ mongoose.connect(
   ),
   app.get('mongo_options')
 );
+
+var Cat = mongoose.model('Cat', { name: String });
 
 /** Test redis connection. */
 var redisClient = redis.createClient(
@@ -47,12 +49,24 @@ redisClient.get('someredisprop', function (err, val) {
 
 /** Fire up express. */
 app.get('/', function (req, res) {
-  res.send('Hello world\n');
+  var cats = ['Larry', 'Cinza', 'Steve', 'Jack', 'Foo', 'Poo', 'Krammer'];
+  var kitty = new Cat({ name: cats[Math.floor(Math.random() * cats.length)] });
+  kitty.save(function (err) {
+    if (err) {
+      throw err;
+    }
+    Cat.count(function(err, c) {
+      if (err) {
+        throw err;
+      }
+      res.send('Hello world, '+kitty.name+' was saved. Number of cats now in the system: '+c+'\n');
+    });
+  });
 });
 
 var server = app.listen(app.get('port'), function() {
   console.log(
-    'Example app listening at http://localhost:%s in a %s enviornment.',
+    'App running on port %d in %s.',
     app.get('port'),
     app.get('env')
   );

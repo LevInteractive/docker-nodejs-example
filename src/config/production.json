@@ -1,6 +1,6 @@
 {
   "mongo": {
-    "host": "localhost",
+    "host": "mongo",
     "db": "production_myapp",
     "port": 27017,
     "options": {
